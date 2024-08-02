@@ -53,14 +53,13 @@ def reverse_mappings(col: int):
 
 def data_col(day, lunch):
     n = weekly_Col_Mapping[day]
-    if lunch == False:
+    if not lunch:
         n += 1
     return n
 
 
 def number_of_employes(pandas_df):
     count = 0
-    # print(pandas_df.iat[3, 0])
     for i in range(3, 100):
         if str(pandas_df.iat[i, 0]) == "Arrive at-->":
             break
@@ -117,15 +116,10 @@ def sort_data(data: list):
     """
 
 
-# parsing data          |        ^^^^^^^^^
-# emails                |
-#                       v
-
-
 emailsBack = 1
 server =  "imap.gmail.com"
 emailAdress = "tuckernmilly@gmail.com"
-password = "xlga ivvs dpal oovz"   # app pasword
+password = "google app password"   # app pasword
 
 
 def save_schedule_PDF():
@@ -139,7 +133,6 @@ def save_schedule_PDF():
     _, data = imap.fetch(emailIDS[0 - emailsBack], '(RFC822)')     # -1 gives most recent
     emailData = email.message_from_bytes(data[0][1])
     filename = str(emailData.get("Subject"))
-    # filepath = os.path.join("saveFolder", f"{filename}.pdf")
     for part in emailData.walk():
         if part.get_content_type() == "application/pdf":
             filename = part.get_filename()
@@ -148,6 +141,6 @@ def save_schedule_PDF():
                 f.write(part.get_payload(decode=True))
 
     imap.close()
-    print("pdf saved as ",filename)
+    print("pdf saved as ", filename)
     return filename
 

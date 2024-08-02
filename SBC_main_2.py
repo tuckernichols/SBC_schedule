@@ -1,18 +1,13 @@
 import SBC_Functions
 
 
-def searchDay(day, lunch : bool, filename):
+def search_day(day, lunch: bool, filename):
     data = SBC_Functions.pdf_to_pandas(f"saveFolder/{filename}")
     col = SBC_Functions.data_col(day, lunch)
 
     collected_data = SBC_Functions.collect_data(data, col)
     sorted_data = SBC_Functions.sort_data(collected_data)
-    print(collected_data)
-    print(sorted_data)
     return sorted_data
-
-
-# searchDay("wednesday", lunch=True)
 
 
 def search_name(name, filename):
@@ -28,7 +23,7 @@ def search_name(name, filename):
     return shifts
 
 
-def upload_Newest():
+def upload_newest_schedule():
     SBC_Functions.save_schedule_PDF()
 
 
@@ -50,4 +45,3 @@ search_name("Jonny", "7.22.24-8.4.24 Schedule.pdf")
 # brush up on many skills
 #
 #
-

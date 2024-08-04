@@ -36,8 +36,7 @@ def pdf_to_pandas(pdf_path):
     return combined_df
 
 
-weekly_Col_Mapping = { "monday": 1, "tuesday": 3, "wednesday": 5, "thursday": 7, "friday": 9,
-                      "saturday": 11, "sunday": 13}
+weekly_Col_Mapping = { "monday": 1, "tuesday": 3, "wednesday": 5, "thursday": 7, "friday": 9, "saturday": 11, "sunday": 13}
 reversed_weekly_col_mapping = {value: key for key, value in weekly_Col_Mapping.items()}
 
 
@@ -143,4 +142,3 @@ def save_schedule_PDF():
     imap.close()
     print("pdf saved as ", filename)
     return filename
-

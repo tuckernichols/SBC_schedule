@@ -15,7 +15,6 @@ def search_name(name, filename):
     data = SBC_Functions.pdf_to_pandas(f"saveFolder/{filename}")
     for col in range(1, 15):
         collected_data = SBC_Functions.collect_data(data, col)
-        # print(collected_data)
         for namedata in collected_data:
             if namedata[0] == name:
                 shifts.append([SBC_Functions.reverse_mappings(col), namedata[1]])
@@ -26,22 +25,3 @@ def search_name(name, filename):
 def upload_newest_schedule():
     SBC_Functions.save_schedule_PDF()
 
-
-search_name("Jonny", "7.22.24-8.4.24 Schedule.pdf")
-
-
-# PLANING
-# how do i make this accessible to everyone working there
-#
-#
-# front end?
-
-#   website though flask
-# pros:
-# full control
-# demonstrates knowage of flack and JS
-# cons:
-# need responsive design
-# brush up on many skills
-#
-#
